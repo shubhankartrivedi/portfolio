@@ -23,7 +23,7 @@ export const metadata = {
       {
         url: 'https://cdn.discordapp.com/attachments/1061377727363567707/1147218173540716574/image.png',
         width: 800,
-        height: 500,
+        height: 800,
       },
     ],
     // locale: 'en_US',
@@ -39,7 +39,7 @@ export const metadata = {
       {
         url: 'https://cdn.discordapp.com/attachments/1061377727363567707/1147218173540716574/image.png',
         width: 800,
-        height: 500,
+        height: 800,
       },
     ],
     // locale: 'en_US',
