@@ -10,23 +10,33 @@ module.exports = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
       },
       animation: {
         'scale-up': 'scaleUp 1s ease-in 1',
         'fade-in': 'fadeIn 2s ease-in-out 1',
+        'from-left': 'fromLeft 1s ease-out 1',
+        'from-right': 'fromRight 1s ease-out 1'
       },
       keyframes: () => ({
         scaleUp: {
           '0%': { transform: 'scale(100%)' },
           '40%': { transform: 'scale(70%)', filter: 'blur(1px)' },
-          '100%': { transform: 'scale(1000%)', filter: 'blur(100px)' },
+          '100%': { transform: 'scale(1000%)', filter: 'blur(100px)' }
         },
         fadeIn: {
-          '0%': { opacity: 0 },
+          '0%': { opacity: 0},
           '50%': { opacity: 0},
-          '100%': { opacity: 100},
-        }
+          '100%': { opacity: 100}
+        },
+        fromLeft: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+        fromRight: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
       }),
       fontSize: {
         xs: ['0.75rem', { lineHeight: '1.5' }],
