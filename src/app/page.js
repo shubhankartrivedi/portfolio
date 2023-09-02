@@ -10,7 +10,7 @@ export default function Home() {
 
 
   return (
-    <main className='sm:p-10 p-3 h-screen relative overflow-hidden'>
+    <main className='p-3 h-screen relative'>
 
       <div className="flex flex-col justify-center items-center h-full gap-14">
 
@@ -30,15 +30,12 @@ export default function Home() {
             <DiscordLink />
         </div>
 
-<div className="flex justify-between flex-wrap absolute bottom-0 sm:p-5 p-2 text-sm sm:text-lg w-full">
+<div className="flex justify-end flex-wrap absolute bottom-0 p-5 text-sm sm:text-lg w-full">
 
 
-<div>
-  <p className="italic dark:text-gray-700 text-gray-500">this website's source code <Link className='underline hover:no-underline' target='blank' href='https://github.com/shubhankartrivedi/portfolio/'>here</Link></p>
-</div>
 
 <div>
-  <p className="italic dark:text-gray-800 text-gray-400">this website is under development</p>
+  <p className="italic dark:text-gray-800 text-gray-400 p-5">this website is under development</p>
 </div>
 </div>
 
