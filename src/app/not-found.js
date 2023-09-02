@@ -1,5 +1,51 @@
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata = {
+
+  
+   
+
+    title: '404 - Page Not Found',
+    description: 'This page does not exist',
+    //keywords: blog.keywords,
+   // colorScheme: 'dark',
+   // publishedTime: blog.timestamp,
+    openGraph: {
+        title: '404 - Page Not Found',
+        description: 'This page does not exist',
+      url: 'https://shubhankartrivedi.com',
+      siteName: 'Shubhankar Trivedi',
+      images: [
+        {
+          url: 'https://cdn.discordapp.com/attachments/1061377727363567707/1147218173540716574/image.png',
+          width: 800,
+          height: 800,
+        },
+      ],
+      // locale: 'en_US',
+      type: 'website',
+      // publishedTime: blog.timestamp,
+    },
+    twitter: {
+        title: '404 - Page Not Found',
+        description: 'This page does not exist',
+      url: 'https://shubhankartrivedi.com',
+      siteName: 'Shubhankar Trivedi',
+      images: [
+        {
+          url: 'https://cdn.discordapp.com/attachments/1061377727363567707/1147218173540716574/image.png',
+          width: 800,
+          height: 800,
+        },
+      ],
+      // locale: 'en_US',
+      type: 'website',
+      // publishedTime: blog.timestamp,
+    },
+  }
+
+  
 export default async function NotFound() {
 
     const res = await fetch('https://api.thecatapi.com/v1/images/search?limit=1', { cache: 'no-cache' })
