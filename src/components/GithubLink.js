@@ -8,11 +8,11 @@ export default function GithubLink() {
     const [animation, setAnimation] = useState(false)
     const handleClick = async (e) => {
 
-        setAnimation(true)
-        await sleep(900)
+        // setAnimation(true)
+        // await sleep(900)
       window.location.href = "https://github.com/shubhankartrivedi"
-      await sleep(100)
-      setAnimation(false)
+      // await sleep(100)
+      // setAnimation(false)
     }
 
     return (
