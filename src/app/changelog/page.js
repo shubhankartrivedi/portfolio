@@ -67,6 +67,7 @@ export default function Changelog() {
                         <ul className="list-disc list-inside dark:text-gray-400 text-gray-600">
                             <li>Changelog page</li>
                             <li>Onboard Animations</li>
+                            <li>Improved Github Contribution Chart on Mobile</li>
                             <li>Responsiveness in current pages</li>
                             <li>Navbar</li>
                         </ul>
