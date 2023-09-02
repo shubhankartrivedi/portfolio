@@ -2,6 +2,49 @@
 
 import Stability from "@/components/changelog/StabilityScore"
 
+export const metadata = {
+
+  
+   
+
+    title: 'Changelog',
+    description: 'Change Logs for my portfolio',
+    //keywords: blog.keywords,
+   // colorScheme: 'dark',
+   // publishedTime: blog.timestamp,
+    openGraph: {
+        title: 'ChangeLog',
+        description: 'Change Logs for my portfolio',
+      url: 'https://shubhankartrivedi.com/changelog',
+      siteName: 'Shubhankar Trivedi',
+      images: [
+        {
+          url: 'https://cdn.discordapp.com/attachments/1061377727363567707/1147218173540716574/image.png',
+          width: 800,
+          height: 800,
+        },
+      ],
+      // locale: 'en_US',
+      type: 'website',
+      // publishedTime: blog.timestamp,
+    },
+    twitter: {
+        title: 'ChangeLog',
+        description: 'Change Logs for my portfolio',
+      url: 'https://shubhankartrivedi.com/changelog',
+      siteName: 'Shubhankar Trivedi',
+      images: [
+        {
+          url: 'https://cdn.discordapp.com/attachments/1061377727363567707/1147218173540716574/image.png',
+          width: 800,
+          height: 800,
+        },
+      ],
+      // locale: 'en_US',
+      type: 'website',
+      // publishedTime: blog.timestamp,
+    },
+  }
 
 export default function Changelog() {
     return (
