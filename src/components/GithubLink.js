@@ -10,7 +10,7 @@ export default function GithubLink() {
 
         // setAnimation(true)
         // await sleep(900)
-      window.location.href = "https://github.com/shubhankartrivedi"
+        router.replace('/github')
       // await sleep(100)
       // setAnimation(false)
     }
