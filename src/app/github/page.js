@@ -47,7 +47,7 @@ function Page() {
     return (
     
         <div className="pt-28 px-10">
-    {/* <ClientRedirect /> */}
+    <ClientRedirect />
     <div className="">
     <h1 className="text-6xl font-bold">You being redirected to github...</h1>
     </div>
