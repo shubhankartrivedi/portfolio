@@ -11,14 +11,14 @@ export const metadata = {
   
    
 
-  title: 'This is my portfolio',
-  description: 'Under development',
+  title: 'Shubhankar Trivedi',
+  description: 'This website is under development',
   //keywords: blog.keywords,
  // colorScheme: 'dark',
  // publishedTime: blog.timestamp,
   openGraph: {
-    title: 'This is my portfolio',
-    description: 'Under development',
+    title: 'Shubhankar Trivedi',
+    description: 'This website is under development',
     url: 'https://shubhankartrivedi.com',
     siteName: 'Shubhankar Trivedi',
     images: [
@@ -33,8 +33,8 @@ export const metadata = {
     // publishedTime: blog.timestamp,
   },
   twitter: {
-    title: 'This is my portfolio',
-    description: 'Under development',
+    title: 'Shubhankar Trivedi',
+    description: 'This website is under development',
     url: 'https://shubhankartrivedi.com',
     siteName: 'Shubhankar Trivedi',
     images: [
