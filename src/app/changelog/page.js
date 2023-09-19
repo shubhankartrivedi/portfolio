@@ -56,6 +56,59 @@ export default function Changelog() {
 
 
 
+
+
+                <div className="flex flex-row flex-wrap gap-20 rounded-2xl dark:bg-black bg-gray-300 p-5 dark:border border-gray-800">
+
+                    <div className="flex flex-col gap-5">
+                        <div className="">
+                            <h2 className="text-4xl font-semibold">v0.3</h2>
+                            <p className="text-2xl">Alpha Release</p>
+                        </div>
+                        <p className="text-gray-600">18 September 2023</p>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <h3 className="text-xl font-semibold">What's new?</h3>
+                        <ul className="list-disc list-inside dark:text-gray-400 text-gray-600 max-w-sm">
+                            <li>New /resources Page</li>
+                        </ul>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <h3 className="text-xl font-semibold">Fixed Issues</h3>
+                        <ul className="list-disc list-inside dark:text-gray-400 text-gray-600 max-w-sm">
+                            <li>none</li>
+                        </ul>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <h3 className="text-xl font-semibold">Known Issues</h3>
+                        <ul className="list-disc list-inside dark:text-gray-400 text-gray-600 max-w-sm">
+                            <li>none</li>
+                        </ul>
+                    </div>
+
+
+                    <div className="flex flex-col justify-center gap-5">
+                        <h3 className="text-4xl font-semibold">Stability Score</h3>
+                        <Stability value={10} />
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div className="flex flex-row flex-wrap gap-20 rounded-2xl dark:bg-black bg-gray-300 p-5 dark:border border-gray-800">
 
                     <div className="flex flex-col gap-5">
