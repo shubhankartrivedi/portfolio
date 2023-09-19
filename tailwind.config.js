@@ -15,7 +15,7 @@ module.exports = {
       animation: {
         'scale-up': 'scaleUp 1s ease-in 1',
         'fade-in': 'fadeIn 2s ease-in-out 1',
-        'fade-in-fast': 'fadeInFast 200ms ease-out 1',
+        'fade-in-fast': 'fadeInFast 0.4s ease-out 1',
         'from-left': 'fromLeft 1s ease-out 1',
         'from-right': 'fromRight 1s ease-out 1'
       },

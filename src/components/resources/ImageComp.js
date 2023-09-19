@@ -17,7 +17,7 @@ export default function Resources({src, text}) {
                    <div className="group relative rounded-lg">
                     <Image src={src} alt={text} height={500} className="rounded-lg" />
 
-                    <div className="group-hover:flex absolute hidden animate-fade-in-fast rounded-lg top-0 w-full h-full bg-gray-500/30 backdrop-blur-md">
+                    <div className="group-hover:flex absolute hidden animate-fade-in-fast rounded-lg top-0 w-full h-full dark:bg-gray-500/30 bg-gray-100/30 backdrop-blur-md">
                     <button onClick={()=>setFull(true)} className="w-full h-full drop-shadow-xl">View Fullscreen</button>
 </div>
 
