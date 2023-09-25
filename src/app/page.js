@@ -3,6 +3,7 @@ import Link from "next/link"
 import Contribution from "@/components/Contribution"
 import GithubLink from "@/components/GithubLink"
 import DiscordLink from "@/components/DiscordLink"
+import Gita from "@/components/Promo/Gita"
 
 
 
@@ -11,6 +12,7 @@ export default function Home() {
 
   return (
     <main className='p-3 h-screen relative'>
+      <Gita />
 
       <div className="flex flex-col justify-center items-center h-full gap-14">
 
