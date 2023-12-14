@@ -17,9 +17,12 @@ export default function Home() {
 
         <div>
           <h1 className="lg:text-7xl md:text-6xl sm:text-5xl text-5xl font-bold text-center dark:text-white text-black drop-shadow-2xl relative">
-            <span style={{ animationDuration: '1s' }} className="animate-fade-in">I'm Shubhankar Trivedi</span>
+            <span style={{ animationDuration: '1s' }} className="animate-fade-in">I'm Shubhankar</span>
             <span style={{ animationDuration: '2s' }} className="relative animate-fade-in"><span>{' '}👋</span> <span className="absolute right-0 left-0 top-0 -z-10 blur-2xl">👋</span></span>
           </h1>
+          <p className="lg:text-2xl md:text-xl sm:text-lg text-lg text-center dark:text-white/80 text-black drop-shadow-2xl relative">
+          <span style={{ animationDuration: '1s' }} className="animate-fade-in">but you can call me Shubh</span>
+          </p>
         </div>
 
         <div className=''>

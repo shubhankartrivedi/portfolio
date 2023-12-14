@@ -11,16 +11,16 @@ export const metadata = {
   
    
 
-  title: 'Shubhankar Trivedi',
+  title: 'Shubhankar',
   description: 'This website is under development',
   //keywords: blog.keywords,
  // colorScheme: 'dark',
  // publishedTime: blog.timestamp,
   openGraph: {
-    title: 'Shubhankar Trivedi',
+    title: 'Shubhankar',
     description: 'This website is under development',
     url: 'https://shubhankartrivedi.com',
-    siteName: 'Shubhankar Trivedi',
+    siteName: 'Shubhankar',
     images: [
       {
         url: 'https://cdn.discordapp.com/attachments/1061377727363567707/1147218173540716574/image.png',
@@ -33,10 +33,10 @@ export const metadata = {
     // publishedTime: blog.timestamp,
   },
   twitter: {
-    title: 'Shubhankar Trivedi',
+    title: 'Shubhankar',
     description: 'This website is under development',
     url: 'https://shubhankartrivedi.com',
-    siteName: 'Shubhankar Trivedi',
+    siteName: 'Shubhankar',
     images: [
       {
         url: 'https://cdn.discordapp.com/attachments/1061377727363567707/1147218173540716574/image.png',
