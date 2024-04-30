@@ -35,10 +35,10 @@ html {
   min-width: 360px;
 }
 h1 {
-  @apply text-7xl font-bold tracking-tighter;
+  @apply lg:text-7xl sm:text-6xl text-5xl font-bold tracking-tighter;
 }
 h2 {
-  @apply text-4xl font-bold tracking-tighter;
+  @apply lg:text-5xl sm:text-4xl text-3xl font-bold tracking-tighter;
 }
 .prose .anchor {
   @apply absolute invisible no-underline;

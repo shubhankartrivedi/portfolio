@@ -58,8 +58,8 @@ export default function RootLayout({
           <SpeedInsights />
 
         </main>
-        <p className='dark:bg-white/20 bg-black/20  absolute top-0 -left-10 h-full w-[0.2px]'/>
-        <p className='dark:bg-white/20 bg-black/20 absolute top-0 -right-10 h-full w-[0.2px]'/>
+        <p className='dark:bg-white/20 lg:block hidden bg-black/20  absolute top-0 -left-10 h-full w-[0.2px]'/>
+        <p className='dark:bg-white/20 lg:block hidden bg-black/20 absolute top-0 -right-10 h-full w-[0.2px]'/>
       </body>
     </html>
   )
