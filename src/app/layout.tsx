@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: 'Shubhankar Trivedi',
     template: '%s | Shubhankar',
   },
-  description: 'Here I post my blogs and some stuff.',
+  description: "I'm a computer science, engineering, and design enthusiast. I'm passionate about building products that make a positive impact on the world. I post about my journey, thoughts, and learnings here.",
   openGraph: {
     url: baseUrl,
     locale: 'en_US',
