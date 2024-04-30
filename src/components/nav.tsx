@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link'
 
 const navItems = {
@@ -20,7 +21,7 @@ export function Navbar() {
           <div className="flex items-center w-full">
           {Object.entries(navItems).map(([path, { name }]) => {
               return (
-                <>
+                <React.Fragment key={path}>
                 <Link
                   href={path}
                   className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
@@ -28,7 +29,7 @@ export function Navbar() {
                 {name}
                 </Link>
                 <svg className='h-1 w-1 dark:fill-white fill-black last:hidden' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>
-                </>
+                </React.Fragment>
               )
             })}
 
