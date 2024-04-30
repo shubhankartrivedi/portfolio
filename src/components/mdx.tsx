@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { highlight } from 'sugar-high'
+// import { highlight } from 'sugar-high'
+import rehypeHighlight from 'rehype-highlight';
 import React from 'react'
+import "@styles/highlight-js/tokyo-night.css"
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -49,17 +51,30 @@ function RoundedImage(props) {
 }
 
 function Code({ children, ...props }) {
-  let codeHTML = highlight(children);
+  let codeHTML = children.toString();
   let caption = props.className?.includes('language-') ? props.className.split('-')[1] : null;
-  return (
-      <div className="code-container">
-      <pre>
-        <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
-      </pre>
-      {caption && <caption className="code-caption">{caption}</caption>}
-    </div>
+  if (caption) {
+    return (
+      <div className="code-container relative group">
+        <pre>
+          <div {...props} >
+            {children}
+          </div>
+        </pre>
+        <div className='caption hidden group-hover:flex justify-end pr-3 absolute top-0 left-0  pointer-events-none w-20'>
+          <div className='dark:bg-black bg-white inline-flex px-1'> {caption}</div>
+        </div>
+      </div>
+    )
+  } else {
+    return (
+      <span className='code-inline'>
+        <code dangerouslySetInnerHTML={{ __html: children }} {...props} />
+      </span>
 
-  )
+    )
+
+  }
 }
 
 function slugify(str: string) {
@@ -107,12 +122,19 @@ let components = {
   code: Code,
   Table,
 }
+const options = {
+  mdxOptions: {
+    remarkPlugins: [],
+    rehypePlugins: [rehypeHighlight],
+  }
+}
 
 export function CustomMDX(props) {
   return (
     <MDXRemote
       {...props}
       components={{ ...components, ...(props.components || {}) }}
+      options={options}
     />
   )
 }

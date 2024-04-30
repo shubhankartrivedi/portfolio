@@ -1,0 +1,314 @@
+---
+title: 'ASCII Art in Rust 🦀'
+publishedAt: '2024-05-01'
+summary: "We gonna code a rust program that converts an image to ASCII art in terminal!"
+image: "rust-ascii-art.png"
+---
+
+In this post, we will be creating a Rust program that converts an image to ASCII art and prints that in terminal {"("}*in colour aswell*{")"}.
+
+# Prerequisites
+
+Before we start, make sure you have Rust installed on your system. If not, you can install it by following the instructions on the [Official Rust website](https://www.rust-lang.org/tools/install).
+
+
+
+# Setting up the project
+
+Create a new Rust project using the following command:
+```bash
+$ cargo new ascii_art
+$ cd ascii_art
+```
+
+We will use the `image` crate to read the image and `colored` crate to print the ASCII art in colour. Add these dependencies to your `Cargo.toml` file:
+```toml
+# Cargo.toml
+
+[dependencies]
+image = "0.25.1"
+colored = "2.1.0"
+```
+
+Now, let's write the code to convert the image to ASCII art.
+
+# Writing the code
+
+Delete the contents of the `src/main.rs` file and add the following code.
+This code imports the required crates:
+```rust
+// src/main.rs
+use image::GenericImageView;
+use colored::Colorize;
+```
+
+Now, let's write the function to convert the image to ASCII art.
+We will use the `image::open` function to open the image and `image::GenericImageView` trait to get the dimensions of the image.
+Don't forget to add your image file in the project directory where `Cargo.toml` is located.
+
+### get_image function
+
+```rust
+// src/main.rs
+
+fn get_image(dir: &str) {
+    let img = image::open(dir).expect("File not found");
+    println!("{:?}", img.dimensions());
+}
+fn main() {
+    get_image("image.jpg");
+}
+```
+```terminal
+(1000,1000)
+```
+
+As you can see, the `get_image` function prints the dimensions of the image. Now, let's convert the image to ASCII art.
+This will be a bit complex, so I will explain the code in parts next.
+```rust
+// src/main.rs
+// in  get_image function
+
+let (width, height) = img.dimensions();
+    for y in 0..height {
+        for x in 0..width {
+            if y % (scale * 2) == 0 && x % scale == 0 {
+                let pix = img.get_pixel(x, y);
+
+                let mut intent = ((pix[0] as u32 + pix[1] as u32 + pix[2] as u32) / 3) as u8;
+
+                if pix[3] == 0 {
+                    intent = 0;
+                }
+                print!("{}", get_str_ascii(intent, negative).truecolor(pix[0], pix[1], pix[2]));
+            }
+        }
+        if y % (scale * 2) == 0 {
+            println!("");
+        }
+    }
+```
+
+Lets start from the top.
+
+The code below gets the dimensions of the image and stores them in the `width` and `height` variables.
+```rust
+let (width, height) = img.dimensions();
+```
+
+The code below loops through the height of the image then the width of the image.
+You can see we have `y` as the height and `x` as the width because MATHS 😂.
+```rust
+for y in 0..height {
+ for x in 0..width {
+
+ }
+}
+```
+
+The code below checks if the current `y` is divisible by `scale * 2` and `x` is divisible by `scale`.
+We do this to reduce the number of pixels we print to the terminal else the image will be too large for high-resolution image.
+
+
+
+**Note:** This is because the height of a character is more than the width of a character in terminal. So by multiplying the scale by 2, we get a more accurate representation of the image.
+```rust
+if y % (scale * 2) == 0 && x % scale == 0 {
+
+}
+```
+
+The code below gets the pixel at the current `x` and `y` position.
+The `get_pixel` function returns a `Rgba<u8>` struct which contains the pixel data.
+```rust
+let pix = img.get_pixel(x, y);
+```
+
+The code below calculates the intensity of the pixel by averaging the red, green, and blue values.
+We divide by 3 because we are converting the pixel to grayscale.
+
+Also, we cast the result to `u8` because the `truecolor` function only accepts `u8` values.
+
+**Note:** u8 is an unsigned 8-bit integer which ranges from 0 to 255.
+```rust
+let mut intent = ((pix[0] as u32 + pix[1] as u32 + pix[2] as u32) / 3) as u8;
+```
+
+**Optional:** You can use the formula below to get a more detailed intensity value.
+```rust
+let mut intent = (0.299 * pix[0] as f32 + 0.587 * pix[1] as f32 + 0.114 * pix[2] as f32) as u8;
+```
+
+The code below checks if the alpha value of the pixel is 0.
+If the alpha value is 0, it means the pixel is transparent, so we set the intensity to 0.
+```rust
+if pix[3] == 0 {
+ intent = 0;
+}
+```
+
+The code below prints the ASCII character based on the intensity of the pixel.
+We use the `get_str_ascii` function to get the ASCII character based on the intensity.
+We also use the `truecolor` function to print the ASCII character in colour.
+```rust
+print!("{}", get_str_ascii(intent, negative).truecolor(pix[0], pix[1], pix[2]));
+```
+
+Now let's code the `get_str_ascii` function.
+
+### get_str_ascii function
+
+```rust
+// src/main.rs
+
+fn get_str_ascii(intent: u8, neg: bool) -> &'static str {
+    let index = intent / 32;
+    let mut ascii = [" ", ".", ",", "-", "~", "+", "=", "@"];
+    if neg == true {
+        ascii.reverse();
+    }
+
+    return ascii[index as usize];
+}
+```
+
+Let's break down the code.
+
+The code below calculates the index of the ASCII character based on the intensity of the pixel.
+We divide the intensity by 32 because we have 8 ASCII characters and 256 intensity levels `(0 -> 255)`.
+```rust
+let index = intent / 32;
+```
+
+The code below creates an array of ASCII characters.
+We use the `index` to get the ASCII character from the array.
+
+**Note:** The ASCII characters are arranged from light to dark.
+```rust
+let mut ascii = [" ", ".", ",", "-", "~", "+", "=", "@"];
+```
+
+The code below checks if the `neg` parameter is `true`.
+If it is `true`, it reverses the array to give the negative effect.
+```rust
+if neg == true {
+ ascii.reverse();
+}
+```
+
+The code below returns the ASCII character based on the `index`.
+
+**Note:** We cast the `index` to `usize` because the array index must be an unsigned integer. `usize` is an unsigned integer that is the same size as a pointer.
+```rust
+return ascii[index as usize];
+```
+
+Now, the code is complete. You can run the program by calling the `get_image` function in the `main` function.
+
+When calling the `get_image` function, pass the path to the image file as an argument.
+
+**Note:** We use `&` before the file path to pass a reference to the string.
+```rust
+fn main() {
+    let file = "image.jpg";
+    let scale = 7;
+    get_image(&file, scale, false);
+}
+```
+
+**Note:** If your image is too large, you can increase the `scale` value to reduce the number of pixels printed to the terminal.
+
+## Running the program
+
+To run the program, use the following command:
+```bash
+$ cargo run
+```
+
+You should see the ASCII art of the image printed in the terminal.
+
+## What's next?
+
+
+You can add more features to the program and make it more interactive.
+Like adding a command-line argument to pass the image file path like in the code below.
+
+```rust
+fn main() {
+    let file = std::env::args().nth(1).expect("No file mentioned");
+    let scale: u32 = std::env::args().nth(2).expect("Scale not mentioned").parse().unwrap();
+
+    get_image(&file, scale, false);
+}
+```
+```bash
+$ cargo run image.jpg 7
+```
+
+
+# Conclusion
+
+In this post, we created a Rust program that converts an image to ASCII art.
+We used the `image` crate to read the image and `colored` crate to print the ASCII art in colour.
+
+This is the full code of the program:
+```rust
+use colored::Colorize;
+use image::GenericImageView;
+
+fn get_str_ascii(intent: u8, neg: bool) -> &'static str {
+    let index = intent / 32;
+    let mut ascii = [" ", ".", ",", "-", "~", "+", "=", "@"];
+    if neg == true {
+        ascii.reverse();
+    }
+
+    return ascii[index as usize];
+}
+
+fn get_image(dir: &str, scale: u32, negative: bool) {
+    let img = image::open(dir).expect("File not found");
+    println!("{:?}", img.dimensions());
+    let (width, height) = img.dimensions();
+    for y in 0..height {
+        for x in 0..width {
+            if y % (scale * 2) == 0 && x % scale == 0 {
+                let pix = img.get_pixel(x, y);
+                let mut intent = ((pix[0] as u32 + pix[1] as u32 + pix[2] as u32) / 3) as u8;
+                if pix[3] == 0 {
+                    intent = 0;
+                }
+                print!(
+                    "{}",
+                    get_str_ascii(intent, negative).truecolor(pix[0], pix[1], pix[2])
+                );
+            }
+        }
+        if y % (scale * 2) == 0 {
+            println!("");
+        }
+    }
+}
+fn main() {
+    let file = std::env::args().nth(1).expect("No file mentioned");
+    let scale: u32 = std::env::args().nth(2).expect("Scale not mentioned").parse().unwrap();
+    get_image(&file, scale, false);
+}
+```
+
+Thanks for reading! I hope you enjoyed this post.
+More posts are coming soon. Stay tuned!
+
+*If you found any mistake, then dm me in Instagram 😂*
+
+
+
+
+
+
+
+
+
+
+
+

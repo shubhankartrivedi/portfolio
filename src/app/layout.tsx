@@ -1,4 +1,4 @@
-import './global.css'
+import './styles/global.css'
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
@@ -58,8 +58,8 @@ export default function RootLayout({
           <SpeedInsights />
 
         </main>
-        <p className='dark:bg-white/20 lg:block hidden bg-black/20  absolute top-0 -left-10 h-full w-[0.2px]'/>
-        <p className='dark:bg-white/20 lg:block hidden bg-black/20 absolute top-0 -right-10 h-full w-[0.2px]'/>
+        <p className='border-l dark:border-white/10 lg:block hidden border-black/10  absolute top-0 -left-10 h-full w-[0.5px]'/>
+        <p className='border-l dark:border-white/10 lg:block hidden border-black/10 absolute top-0 -right-10 h-full w-[0.5px]'/>
       </body>
     </html>
   )

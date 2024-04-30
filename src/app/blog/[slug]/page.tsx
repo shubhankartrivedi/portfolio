@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { CustomMDX } from '@components/mdx'
 import { formatDate, getBlogPosts } from '@/app/blog/utils'
 import { baseUrl } from '@/app/sitemap'
-import Image from 'next/image'
+import {default as ImageComponent} from 'next/image'
 import Link from 'next/link'
 
 export async function generateStaticParams() {
@@ -51,12 +51,14 @@ export function generateMetadata({ params }) {
   }
 }
 
-export default function Blog({ params }) {
+export default async function Blog({ params }) {
   let post = getBlogPosts().find((post) => post.slug === params.slug)
 
   if (!post) {
     notFound()
   }
+
+
 
   return (
     <section>
@@ -93,7 +95,7 @@ export default function Blog({ params }) {
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
             {formatDate(post.metadata.publishedAt)}
           </p>
-          {post.metadata.image && <Image className='border-4 dark:border-white/10 border-black/10' src={post.metadata.image} alt={post.metadata.title} width={600} height={600} />}
+          {post.metadata.image && <ImageComponent className='border-4 dark:border-white/10 border-black/10' src={post.metadata.image} alt={post.metadata.title} width={1200} height={630} />}
         </div>
       </header>
 
