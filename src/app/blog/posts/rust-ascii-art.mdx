@@ -59,7 +59,7 @@ fn main() {
     get_image("image.jpg");
 }
 ```
-```terminal
+```
 (1000,1000)
 ```
 
@@ -168,7 +168,7 @@ fn get_str_ascii(intent: u8, neg: bool) -> &'static str {
         ascii.reverse();
     }
 
-    ascii[index as usize];
+    ascii[index as usize]
 }
 ```
 
@@ -200,7 +200,7 @@ The code below returns the ASCII character based on the `index`.
 
 **Note:** We cast the `index` to `usize` because the array index must be an unsigned integer. `usize` is an unsigned integer that is the same size as a pointer.
 ```rust
-ascii[index as usize];
+ascii[index as usize]
 ```
 
 Now, the code is complete. You can run the program by calling the `get_image` function in the `main` function.
@@ -263,7 +263,7 @@ fn get_str_ascii(intent: u8, neg: bool) -> &'static str {
         ascii.reverse();
     }
 
-    ascii[index as usize];
+    ascii[index as usize]
 }
 
 fn get_image(dir: &str, scale: u32, negative: bool) {
