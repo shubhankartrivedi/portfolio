@@ -1,0 +1,96 @@
+---
+title: 'Rust Cat CLI from Scratch'
+publishedAt: '2024-05-05'
+summary: "We gonna code a rust program that mimics the cat command in terminal! This will help you understand how to work with files in Rust."
+---
+
+In this post, we will be creating a Rust program that mimics the `cat` command in Unix-like systems. The `cat` command is used to concatenate and display the content of files. Our program will read the content of a file and display it in the terminal.
+
+# Prerequisites
+
+Before we start, make sure you have Rust installed on your system. If not, you can install it by following the instructions on the [Official Rust website](https://www.rust-lang.org/tools/install).
+
+# Setting up the project
+
+Create a new Rust project using the following command:
+```bash
+$ cargo new cat
+$ cd cat
+```
+
+# Writing the code
+
+Delete the contents of the `src/main.rs` file and let's start writing the code.
+
+This code imports the required crates:
+```rust
+use std::fs;
+```
+We will use the `std::fs` module to read the content of the file. This is the only module we need for this program.
+
+Now let's code the main function.
+```rust
+// inside main function
+ let file_path =  match std::env::args().nth(1) {
+        Some(file_path) => file_path,
+        None => {
+            eprintln!("Please provide a file path");
+            std::process::exit(1);
+        }
+    };
+```
+The above code reads the first argument passed to the program and stores it in the `file_path` variable. If no argument is provided, it will print an error message and exit the program.
+
+```rust
+let content = match fs::read_to_string(file_path) {
+        Ok(content) => content,
+        Err(err) => {
+            eprintln!("Error reading file: {}", err);
+            std::process::exit(1);
+        }
+    };
+```
+The above code reads the content of the file using the `fs::read_to_string` function. If the file is read successfully, it stores the content in the `content` variable. If there is an error, it prints an error message and exits the program.
+
+```rust
+println!("{}", content);
+```
+Finally, we print the content of the file to the terminal.
+
+# Building and running the program
+
+To build and run the program, use the following command:
+```bash
+$ cargo run <file_path>
+```
+Replace `<file_path>` with the path to the file you want to read.
+
+# Conclusion
+
+That's it! You have successfully created a Rust program that mimics the `cat` command. You can now read the content of files using your Rust program. Feel free to explore more features of Rust and enhance this program further.
+
+## Full code
+```rust
+use std::fs;
+
+fn main() {
+    let file_path =  match std::env::args().nth(1) {
+        Some(file_path) => file_path,
+        None => {
+            eprintln!("Please provide a file path");
+            std::process::exit(1);
+        }
+    };
+    let content = match fs::read_to_string(file_path) {
+        Ok(content) => content,
+        Err(err) => {
+            eprintln!("Error reading file: {}", err);
+            std::process::exit(1);
+        }
+    };
+    println!("{}", content);
+}
+```
+
+I hope you enjoyed this post and learned something new.
+

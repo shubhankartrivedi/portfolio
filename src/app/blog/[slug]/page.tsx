@@ -110,8 +110,8 @@ export default async function Blog({ params }) {
         <CustomMDX source={post.content} />
 
         <footer className='w-full flex justify-end'>
-          <Link title={'Share in X'} className='mt-2 py-5' target="_blank" href={`https://twitter.com/intent/post?text=${post.metadata.title}\n${baseUrl}/blog/${post.slug}`}>
-            <svg className='w-5 h-5 dark:fill-white fill-black' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg>
+          <Link title={'Share in X'} className='mt-2 py-5 inline-flex gap-2 items-center' target="_blank" href={`https://twitter.com/intent/post?text=${post.metadata.title}\n${baseUrl}/blog/${post.slug}`}>
+           Share on <svg className='w-5 h-5 dark:fill-white fill-black' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" /></svg>
           </Link>
         </footer>
       </article>
